@@ -1,0 +1,28 @@
+{
+  "descriptionHash": "B05C4C758B37E798AFB2A7469992FB7E5E8ADE1AE0992D4A69F81F327CA191064ED8FDAE45C0EE5436B6790F2EA1822062082EC3B7C6E2156D6C6762B521867B",
+  "descriptionLocation": "Z:\\smartservice-api\\swagger-serviceprovider.json",
+  "lockFileVersion": "1.0.0",
+  "kiotaVersion": "1.6.0-preview.202308310001",
+  "clientClassName": "ServiceProviderClient",
+  "clientNamespaceName": "Qwips.SmartService.ServiceProvider.ClientSdk",
+  "language": "CSharp",
+  "usesBackingStore": false,
+  "includeAdditionalData": true,
+  "serializers": [
+    "Microsoft.Kiota.Serialization.Json.JsonSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Text.TextSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Form.FormSerializationWriterFactory",
+    "Microsoft.Kiota.Serialization.Multipart.MultipartSerializationWriterFactory"
+  ],
+  "deserializers": [
+    "Microsoft.Kiota.Serialization.Json.JsonParseNodeFactory",
+    "Microsoft.Kiota.Serialization.Text.TextParseNodeFactory",
+    "Microsoft.Kiota.Serialization.Form.FormParseNodeFactory"
+  ],
+  "structuredMimeTypes": [
+    "application/json"
+  ],
+  "includePatterns": [],
+  "excludePatterns": [],
+  "disabledValidationRules": []
+}
