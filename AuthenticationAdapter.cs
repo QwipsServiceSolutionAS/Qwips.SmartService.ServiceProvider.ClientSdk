@@ -9,14 +9,14 @@ namespace Qwips.SemineSync.ClientSdk.Authentication
 {
     public static class AuthenticationAdapter
     {
-
+        /*
         public static async Task<AccessTokenDto> GetToken(string tokenUrl, string userName, string passWord, string scope = "invoiceservice", string grantType = "password")
         {
-            /*
+            
             var tokenUrl = "https://smartservice/token";
             var clientId = "semine";
             var clientSecret = "Dqz8q8tMm3BrTKkzfRSJ";
-            */
+            
             string encodedBasicAuth = Convert.ToBase64String(Encoding.GetEncoding("ISO-8859-1")
                                .GetBytes(clientId + ":" + clientSecret));
             var uri = new Uri(tokenUrl);
@@ -53,6 +53,6 @@ namespace Qwips.SemineSync.ClientSdk.Authentication
             [JsonProperty("refresh_token")]
             public string RefreshToken { get; set; }
 
-        }
+        }*/
     }
 }

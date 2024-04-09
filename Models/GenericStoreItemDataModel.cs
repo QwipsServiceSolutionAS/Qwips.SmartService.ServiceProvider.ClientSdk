@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace Qwips.SmartService.ServiceProvider.ClientSdk.Models {
+namespace Qwips.SmartService.Integration.ClientSdk.Models {
     public class GenericStoreItemDataModel : IParsable {
         /// <summary>The Available property</summary>
         public double? Available { get; set; }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace Qwips.SmartService.ServiceProvider.ClientSdk.Models {
+namespace Qwips.SmartService.Integration.ClientSdk.Models {
     public class MachineModelDto : IParsable {
         /// <summary>The AlternativeName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -24,6 +24,8 @@ namespace Qwips.SmartService.ServiceProvider.ClientSdk.Models {
 #endif
         /// <summary>The Id property</summary>
         public int? Id { get; set; }
+        /// <summary>The IsActive property</summary>
+        public bool? IsActive { get; set; }
         /// <summary>The MachineType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -80,6 +82,7 @@ namespace Qwips.SmartService.ServiceProvider.ClientSdk.Models {
                 {"AlternativeName", n => { AlternativeName = n.GetStringValue(); } },
                 {"DisplayName", n => { DisplayName = n.GetStringValue(); } },
                 {"Id", n => { Id = n.GetIntValue(); } },
+                {"IsActive", n => { IsActive = n.GetBoolValue(); } },
                 {"MachineType", n => { MachineType = n.GetObjectValue<SimpleMachineTypeDto>(SimpleMachineTypeDto.CreateFromDiscriminatorValue); } },
                 {"ModelImage", n => { ModelImage = n.GetStringValue(); } },
                 {"Name", n => { Name = n.GetStringValue(); } },
@@ -96,6 +99,7 @@ namespace Qwips.SmartService.ServiceProvider.ClientSdk.Models {
             writer.WriteStringValue("AlternativeName", AlternativeName);
             writer.WriteStringValue("DisplayName", DisplayName);
             writer.WriteIntValue("Id", Id);
+            writer.WriteBoolValue("IsActive", IsActive);
             writer.WriteObjectValue<SimpleMachineTypeDto>("MachineType", MachineType);
             writer.WriteStringValue("ModelImage", ModelImage);
             writer.WriteStringValue("Name", Name);

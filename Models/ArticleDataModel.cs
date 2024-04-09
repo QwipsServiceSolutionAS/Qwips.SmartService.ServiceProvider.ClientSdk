@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace Qwips.SmartService.ServiceProvider.ClientSdk.Models {
+namespace Qwips.SmartService.Integration.ClientSdk.Models {
     public class ArticleDataModel : IParsable {
         /// <summary>The ArticleDescription property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

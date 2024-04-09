@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace Qwips.SmartService.ServiceProvider.ClientSdk.Models {
+namespace Qwips.SmartService.Integration.ClientSdk.Models {
     public class JobPartDto : IParsable {
         /// <summary>The ArticleCount property</summary>
         public double? ArticleCount { get; set; }

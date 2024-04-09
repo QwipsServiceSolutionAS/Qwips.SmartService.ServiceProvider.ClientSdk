@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace Qwips.SmartService.ServiceProvider.ClientSdk.Models {
+namespace Qwips.SmartService.Integration.ClientSdk.Models {
     public class CounterDto : IParsable {
         /// <summary>The Active property</summary>
         public bool? Active { get; set; }
@@ -12,6 +12,8 @@ namespace Qwips.SmartService.ServiceProvider.ClientSdk.Models {
         public bool? Global { get; set; }
         /// <summary>The Id property</summary>
         public int? Id { get; set; }
+        /// <summary>The LinkedCount property</summary>
+        public int? LinkedCount { get; set; }
         /// <summary>The Name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -36,6 +38,7 @@ namespace Qwips.SmartService.ServiceProvider.ClientSdk.Models {
                 {"Active", n => { Active = n.GetBoolValue(); } },
                 {"Global", n => { Global = n.GetBoolValue(); } },
                 {"Id", n => { Id = n.GetIntValue(); } },
+                {"LinkedCount", n => { LinkedCount = n.GetIntValue(); } },
                 {"Name", n => { Name = n.GetStringValue(); } },
             };
         }
@@ -48,6 +51,7 @@ namespace Qwips.SmartService.ServiceProvider.ClientSdk.Models {
             writer.WriteBoolValue("Active", Active);
             writer.WriteBoolValue("Global", Global);
             writer.WriteIntValue("Id", Id);
+            writer.WriteIntValue("LinkedCount", LinkedCount);
             writer.WriteStringValue("Name", Name);
         }
     }

@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace Qwips.SmartService.ServiceProvider.ClientSdk.Models {
+namespace Qwips.SmartService.Integration.ClientSdk.Models {
     public class SimpleSupplierDto : IParsable {
         /// <summary>The Id property</summary>
         public int? Id { get; set; }
+        /// <summary>The IsActive property</summary>
+        public bool? IsActive { get; set; }
         /// <summary>The Name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,6 +40,7 @@ namespace Qwips.SmartService.ServiceProvider.ClientSdk.Models {
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
                 {"Id", n => { Id = n.GetIntValue(); } },
+                {"IsActive", n => { IsActive = n.GetBoolValue(); } },
                 {"Name", n => { Name = n.GetStringValue(); } },
                 {"SupplierNumber", n => { SupplierNumber = n.GetStringValue(); } },
             };
@@ -49,6 +52,7 @@ namespace Qwips.SmartService.ServiceProvider.ClientSdk.Models {
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("Id", Id);
+            writer.WriteBoolValue("IsActive", IsActive);
             writer.WriteStringValue("Name", Name);
             writer.WriteStringValue("SupplierNumber", SupplierNumber);
         }

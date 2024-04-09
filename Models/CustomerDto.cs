@@ -4,10 +4,24 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace Qwips.SmartService.ServiceProvider.ClientSdk.Models {
+namespace Qwips.SmartService.Integration.ClientSdk.Models {
     public class CustomerDto : IParsable {
-        /// <summary>The AllowPublicView property</summary>
-        public bool? AllowPublicView { get; set; }
+        /// <summary>The Address property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public AddressDto? Address { get; set; }
+#nullable restore
+#else
+        public AddressDto Address { get; set; }
+#endif
+        /// <summary>The Contact property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public ContactDto? Contact { get; set; }
+#nullable restore
+#else
+        public ContactDto Contact { get; set; }
+#endif
         /// <summary>The CreditLimit property</summary>
         public double? CreditLimit { get; set; }
         /// <summary>The CreditLimitExceeded property</summary>
@@ -28,6 +42,14 @@ namespace Qwips.SmartService.ServiceProvider.ClientSdk.Models {
 #endif
         /// <summary>The FreeFromVat property</summary>
         public bool? FreeFromVat { get; set; }
+        /// <summary>The Id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Id { get; set; }
+#nullable restore
+#else
+        public string Id { get; set; }
+#endif
         /// <summary>The IsActive property</summary>
         public bool? IsActive { get; set; }
         /// <summary>The Latitude property</summary>
@@ -83,11 +105,13 @@ namespace Qwips.SmartService.ServiceProvider.ClientSdk.Models {
         /// </summary>
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers() {
             return new Dictionary<string, Action<IParseNode>> {
-                {"AllowPublicView", n => { AllowPublicView = n.GetBoolValue(); } },
+                {"Address", n => { Address = n.GetObjectValue<AddressDto>(AddressDto.CreateFromDiscriminatorValue); } },
+                {"Contact", n => { Contact = n.GetObjectValue<ContactDto>(ContactDto.CreateFromDiscriminatorValue); } },
                 {"CreditLimit", n => { CreditLimit = n.GetDoubleValue(); } },
                 {"CreditLimitExceeded", n => { CreditLimitExceeded = n.GetStringValue(); } },
                 {"CustomerGroupNo", n => { CustomerGroupNo = n.GetStringValue(); } },
                 {"FreeFromVat", n => { FreeFromVat = n.GetBoolValue(); } },
+                {"Id", n => { Id = n.GetStringValue(); } },
                 {"IsActive", n => { IsActive = n.GetBoolValue(); } },
                 {"Latitude", n => { Latitude = n.GetStringValue(); } },
                 {"Longitude", n => { Longitude = n.GetStringValue(); } },
@@ -102,11 +126,13 @@ namespace Qwips.SmartService.ServiceProvider.ClientSdk.Models {
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public void Serialize(ISerializationWriter writer) {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("AllowPublicView", AllowPublicView);
+            writer.WriteObjectValue<AddressDto>("Address", Address);
+            writer.WriteObjectValue<ContactDto>("Contact", Contact);
             writer.WriteDoubleValue("CreditLimit", CreditLimit);
             writer.WriteStringValue("CreditLimitExceeded", CreditLimitExceeded);
             writer.WriteStringValue("CustomerGroupNo", CustomerGroupNo);
             writer.WriteBoolValue("FreeFromVat", FreeFromVat);
+            writer.WriteStringValue("Id", Id);
             writer.WriteBoolValue("IsActive", IsActive);
             writer.WriteStringValue("Latitude", Latitude);
             writer.WriteStringValue("Longitude", Longitude);

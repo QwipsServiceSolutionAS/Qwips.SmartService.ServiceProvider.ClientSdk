@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace Qwips.SmartService.ServiceProvider.ClientSdk.Models {
+namespace Qwips.SmartService.Integration.ClientSdk.Models {
     public class MachineAddedFieldsDto : IParsable {
         /// <summary>The CustomerAgreement property</summary>
         public bool? CustomerAgreement { get; set; }
