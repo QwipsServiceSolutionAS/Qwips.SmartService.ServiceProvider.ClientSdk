@@ -56,10 +56,7 @@ namespace Qwips.SmartService.Integration.ClientSdk.Api2.Integration.Stock {
         public async Task<List<StockEntryGetResponseDto>> GetAsync(Action<StockRequestBuilderGetRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
-                {"422", ProblemDetails.CreateFromDiscriminatorValue},
-            };
-            var collectionResult = await RequestAdapter.SendCollectionAsync<StockEntryGetResponseDto>(requestInfo, StockEntryGetResponseDto.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<StockEntryGetResponseDto>(requestInfo, StockEntryGetResponseDto.CreateFromDiscriminatorValue, default, cancellationToken);
             return collectionResult?.ToList();
         }
         /// <summary>
@@ -77,10 +74,7 @@ namespace Qwips.SmartService.Integration.ClientSdk.Api2.Integration.Stock {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
-                {"422", ProblemDetails.CreateFromDiscriminatorValue},
-            };
-            return await RequestAdapter.SendAsync<StockEntryDto>(requestInfo, StockEntryDto.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<StockEntryDto>(requestInfo, StockEntryDto.CreateFromDiscriminatorValue, default, cancellationToken);
         }
         /// <summary>
         /// Get stock entry list. Has optional filter parameters.

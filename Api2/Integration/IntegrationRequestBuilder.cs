@@ -7,6 +7,7 @@ using Qwips.SmartService.Integration.ClientSdk.Api2.Integration.Job;
 using Qwips.SmartService.Integration.ClientSdk.Api2.Integration.Machine;
 using Qwips.SmartService.Integration.ClientSdk.Api2.Integration.MachineModel;
 using Qwips.SmartService.Integration.ClientSdk.Api2.Integration.MachineType;
+using Qwips.SmartService.Integration.ClientSdk.Api2.Integration.Order;
 using Qwips.SmartService.Integration.ClientSdk.Api2.Integration.Stock;
 using Qwips.SmartService.Integration.ClientSdk.Api2.Integration.Supplier;
 using Qwips.SmartService.Integration.ClientSdk.Api2.Integration.Warehouse;
@@ -48,6 +49,10 @@ namespace Qwips.SmartService.Integration.ClientSdk.Api2.Integration {
         /// <summary>The MachineType property</summary>
         public MachineTypeRequestBuilder MachineType { get =>
             new MachineTypeRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The Order property</summary>
+        public OrderRequestBuilder Order { get =>
+            new OrderRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The Stock property</summary>
         public StockRequestBuilder Stock { get =>

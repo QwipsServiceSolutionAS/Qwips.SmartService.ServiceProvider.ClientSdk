@@ -32,6 +32,7 @@ namespace Qwips.SmartService.Integration.ClientSdk.Api2.Integration.Machine.ExtR
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<MachineDto?> GetAsync(Action<WithExtRef1ItemRequestBuilderGetRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
@@ -46,6 +47,7 @@ namespace Qwips.SmartService.Integration.ClientSdk.Api2.Integration.Machine.ExtR
         /// Get single machine by external reference number.
         /// </summary>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToGetRequestInformation(Action<WithExtRef1ItemRequestBuilderGetRequestConfiguration>? requestConfiguration = default) {
@@ -71,6 +73,7 @@ namespace Qwips.SmartService.Integration.ClientSdk.Api2.Integration.Machine.ExtR
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        [Obsolete("")]
         public WithExtRef1ItemRequestBuilder WithUrl(string rawUrl) {
             return new WithExtRef1ItemRequestBuilder(rawUrl, RequestAdapter);
         }

@@ -16,6 +16,7 @@ namespace Qwips.SmartService.Integration.ClientSdk.Api2.Integration.Machine.Seri
     public class SerialNumberRequestBuilder : BaseRequestBuilder {
         /// <summary>Gets an item from the Qwips.SmartService.Integration.ClientSdk.api2.Integration.Machine.SerialNumber.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
+        [Obsolete("")]
         public WithSerialNumberItemRequestBuilder this[string position] { get {
             var urlTplParams = new Dictionary<string, object>(PathParameters);
             urlTplParams.Add("serialNumber", position);
@@ -41,6 +42,7 @@ namespace Qwips.SmartService.Integration.ClientSdk.Api2.Integration.Machine.Seri
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<MachineDto?> PutAsync(MachinePutRequestDto body, Action<SerialNumberRequestBuilderPutRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
@@ -50,16 +52,14 @@ namespace Qwips.SmartService.Integration.ClientSdk.Api2.Integration.Machine.Seri
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
-                {"424", ProblemDetails.CreateFromDiscriminatorValue},
-            };
-            return await RequestAdapter.SendAsync<MachineDto>(requestInfo, MachineDto.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<MachineDto>(requestInfo, MachineDto.CreateFromDiscriminatorValue, default, cancellationToken);
         }
         /// <summary>
         /// Create or update machine, lookup by serial number.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToPutRequestInformation(MachinePutRequestDto body, Action<SerialNumberRequestBuilderPutRequestConfiguration>? requestConfiguration = default) {
@@ -87,6 +87,7 @@ namespace Qwips.SmartService.Integration.ClientSdk.Api2.Integration.Machine.Seri
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        [Obsolete("")]
         public SerialNumberRequestBuilder WithUrl(string rawUrl) {
             return new SerialNumberRequestBuilder(rawUrl, RequestAdapter);
         }

@@ -40,10 +40,7 @@ namespace Qwips.SmartService.Integration.ClientSdk.Api2.Integration.Stock.Item {
         public async Task<List<StockEntryGetResponseDto>> DeleteAsync(Action<StockItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
-                {"422", ProblemDetails.CreateFromDiscriminatorValue},
-            };
-            var collectionResult = await RequestAdapter.SendCollectionAsync<StockEntryGetResponseDto>(requestInfo, StockEntryGetResponseDto.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<StockEntryGetResponseDto>(requestInfo, StockEntryGetResponseDto.CreateFromDiscriminatorValue, default, cancellationToken);
             return collectionResult?.ToList();
         }
         /// <summary>

@@ -84,10 +84,7 @@ namespace Qwips.SmartService.Integration.ClientSdk.Api2.Integration.Machine {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
-                {"424", ProblemDetails.CreateFromDiscriminatorValue},
-            };
-            return await RequestAdapter.SendAsync<MachineDto>(requestInfo, MachineDto.CreateFromDiscriminatorValue, errorMapping, cancellationToken);
+            return await RequestAdapter.SendAsync<MachineDto>(requestInfo, MachineDto.CreateFromDiscriminatorValue, default, cancellationToken);
         }
         /// <summary>
         /// Get machine list, with optional search parameter and filters.

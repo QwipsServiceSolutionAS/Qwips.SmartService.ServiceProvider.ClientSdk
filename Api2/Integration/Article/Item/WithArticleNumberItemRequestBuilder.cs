@@ -34,16 +34,13 @@ namespace Qwips.SmartService.Integration.ClientSdk.Api2.Integration.Article.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<string?> DeleteAsync(Action<WithArticleNumberItemRequestBuilderDeleteRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<Stream?> DeleteAsync(Action<WithArticleNumberItemRequestBuilderDeleteRequestConfiguration>? requestConfiguration = default, CancellationToken cancellationToken = default) {
 #nullable restore
 #else
-        public async Task<string> DeleteAsync(Action<WithArticleNumberItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
+        public async Task<Stream> DeleteAsync(Action<WithArticleNumberItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
-                {"422", ProblemDetails.CreateFromDiscriminatorValue},
-            };
-            return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, errorMapping, cancellationToken);
+            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, default, cancellationToken);
         }
         /// <summary>
         /// ArticleNumber must be specified, and will get uri-unescape-parsed.ArticleNumber can&apos;t be partial, only one article will be returned not a list of articles.Specifying machineId or childJobId will get pricing based on machine and customer. Only specifying customerId will get pricing based on customer.Specifying nothing will provide default pricing.

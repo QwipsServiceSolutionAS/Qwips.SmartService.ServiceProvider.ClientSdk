@@ -40,10 +40,7 @@ namespace Qwips.SmartService.Integration.ClientSdk.Api2.Integration.Machine.Item
         public async Task<Stream> DeleteAsync(Action<MachineItemRequestBuilderDeleteRequestConfiguration> requestConfiguration = default, CancellationToken cancellationToken = default) {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
-                {"422", ProblemDetails.CreateFromDiscriminatorValue},
-            };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken);
+            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, default, cancellationToken);
         }
         /// <summary>
         /// Get single machine by id.
