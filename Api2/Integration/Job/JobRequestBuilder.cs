@@ -3,6 +3,7 @@ using Microsoft.Kiota.Abstractions;
 using Qwips.SmartService.Integration.ClientSdk.Api2.Integration.Job.AddPart;
 using Qwips.SmartService.Integration.ClientSdk.Api2.Integration.Job.InvoiceComment;
 using Qwips.SmartService.Integration.ClientSdk.Api2.Integration.Job.Item;
+using Qwips.SmartService.Integration.ClientSdk.Api2.Integration.Job.ServiceManagerComment;
 using Qwips.SmartService.Integration.ClientSdk.Api2.Integration.Job.Status;
 using System.Collections.Generic;
 using System.IO;
@@ -21,6 +22,10 @@ namespace Qwips.SmartService.Integration.ClientSdk.Api2.Integration.Job {
         /// <summary>The invoiceComment property</summary>
         public InvoiceCommentRequestBuilder InvoiceComment { get =>
             new InvoiceCommentRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The serviceManagerComment property</summary>
+        public ServiceManagerCommentRequestBuilder ServiceManagerComment { get =>
+            new ServiceManagerCommentRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The status property</summary>
         public StatusRequestBuilder Status { get =>

@@ -51,7 +51,7 @@ namespace Qwips.SmartService.Integration.ClientSdk.Models {
         public List<InvoiceDetailDto> OrderDetails { get; set; }
 #endif
         /// <summary>The OrderStatus property</summary>
-        public InvoiceOrderStatusEnum? OrderStatus { get; set; }
+        public int? OrderStatus { get; set; }
         /// <summary>The Participants property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -112,7 +112,7 @@ namespace Qwips.SmartService.Integration.ClientSdk.Models {
                 {"JobStatusId", n => { JobStatusId = n.GetIntValue(); } },
                 {"NoInvoice", n => { NoInvoice = n.GetBoolValue(); } },
                 {"OrderDetails", n => { OrderDetails = n.GetCollectionOfObjectValues<InvoiceDetailDto>(InvoiceDetailDto.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"OrderStatus", n => { OrderStatus = n.GetEnumValue<InvoiceOrderStatusEnum>(); } },
+                {"OrderStatus", n => { OrderStatus = n.GetIntValue(); } },
                 {"Participants", n => { Participants = n.GetCollectionOfObjectValues<InvoiceUserDto>(InvoiceUserDto.CreateFromDiscriminatorValue)?.ToList(); } },
                 {"Primary", n => { Primary = n.GetObjectValue<InvoiceJobDto>(InvoiceJobDto.CreateFromDiscriminatorValue); } },
                 {"Samtech", n => { Samtech = n.GetObjectValue<SamtechDto>(SamtechDto.CreateFromDiscriminatorValue); } },
@@ -133,7 +133,7 @@ namespace Qwips.SmartService.Integration.ClientSdk.Models {
             writer.WriteIntValue("JobStatusId", JobStatusId);
             writer.WriteBoolValue("NoInvoice", NoInvoice);
             writer.WriteCollectionOfObjectValues<InvoiceDetailDto>("OrderDetails", OrderDetails);
-            writer.WriteEnumValue<InvoiceOrderStatusEnum>("OrderStatus", OrderStatus);
+            writer.WriteIntValue("OrderStatus", OrderStatus);
             writer.WriteCollectionOfObjectValues<InvoiceUserDto>("Participants", Participants);
             writer.WriteObjectValue<InvoiceJobDto>("Primary", Primary);
             writer.WriteObjectValue<SamtechDto>("Samtech", Samtech);
